@@ -15,20 +15,30 @@
     cardArray.push('assets\\cards\\' + i + '.jpg')
   }
 
+  function alternate(changeString) {
+    var charArray = changeString.toLowerCase().split("");
+    for (var i = 1; i < charArray.length; i += 2) {
+        charArray[i] = charArray[i].toUpperCase();
+    }
+    return charArray.join("");
+  };
+
   const questionInput = document.getElementById("question-input");
   const enterButton = document.getElementById("enter-button");
   const repeatQuestion = document.getElementById("repeat-question");
-  const answer = document.getElementById("answer")
+  const answer = document.getElementById("answer");
+  const firstPart = document.getElementById("first-part");
+  const secondPart = document.getElementById("second-part");
 
   enterButton.addEventListener('click', () => {
     const value = questionInput.value;
-    repeatQuestion.textContent = value;
+    repeatQuestion.textContent = alternate(value) + "?";
     const card = cardArray[Math.floor(Math.random() * cardArray.length)]
     answer.src= card
-    console.log(card);
-    console.log(answer.src);
+    firstPart.classList.add('hidden');
+    secondPart.classList.remove('hidden');
+    
   })
 
-  console.log(cardArray[Math.floor(Math.random() * cardArray.length)])
 
 

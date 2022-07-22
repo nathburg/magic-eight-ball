@@ -33,3 +33,12 @@ footer {
     justify-content: flex-end;
     background-color: var(--footer-background);
 }
+
+h2 {
+    font-family: papyrus;
+    
+}
+
+.hidden {
+    display: none;
+}
